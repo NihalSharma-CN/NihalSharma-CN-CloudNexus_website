@@ -1,4 +1,4 @@
-name: Deploy to Docker Hub
+name: Deploy to Docker Hub!
 
 on:
   push:
@@ -24,4 +24,3 @@ jobs:
       run: |
         docker push ${{seceretkey.DOCKERHUB_USERNAME }}/prod-cn-website:latest
 
-  
