@@ -14,14 +14,14 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Log in to Docker Hub
-      run: echo "${{'(Wolf@5911)' }}" | docker login -u "${{ 'ariba5911' }}" --password-stdin
+      run: echo "${{seceretkey.DOCKERHUB_TOKEN }}" | docker login -u "${{ seceretkey.DOCKERHUB_USERNAME }}" --password-stdin
 
     - name: Build Docker image
       run: |
-        docker build -t ${{ 'ariba5911' }}/prod-cn-website:latest .
+        docker build -t ${{ seceretkey.DOCKERHUB_USERNAME }}/prod-cn-website:latest .
 
     - name: Push Docker image to Docker Hub
       run: |
-        docker push ${{ 'ariba5911' }}/prod-cn-website:latest
+        docker push ${{seceretkey.DOCKERHUB_USERNAME }}/prod-cn-website:latest
 
   
